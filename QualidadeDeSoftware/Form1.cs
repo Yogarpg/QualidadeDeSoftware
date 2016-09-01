@@ -27,7 +27,7 @@ namespace QualidadeDeSoftware
         //Botão 1
         private void button1_Click(object sender, EventArgs e)
         {
-            if((visor.Text.Equals("0")) || (op == -1))
+            if ((visor.Text.Equals("0")) || (op == -1))
             {
                 visor.Text = "";
                 op = -2;
@@ -143,109 +143,184 @@ namespace QualidadeDeSoftware
         //Botão de Soma (+)
         private void buttonSoma_Click(object sender, EventArgs e)
         {
-            if(op == -1 || op == -2)
+
+            //Verificação se o visor esta vazio
+            if (visor.Text == "")
             {
-                x = Convert.ToDouble(visor.Text);
+                MessageBox.Show("Digite um número para continuar.");
+                visor.Text = "0";
+                visor.Focus();
             }
             else
             {
-                x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+
+                if (op == -1 || op == -2)
+                {
+                    x = Convert.ToDouble(visor.Text);
+                }
+                else
+                {
+                    x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                }
+                visor.Text = "";
+                op = 0;
+                visor.Focus();
             }
-            visor.Text = "";
-            op = 0;
-            visor.Focus();
         }
         //Botão de Subtração (-)
         private void buttonSubtracao_Click(object sender, EventArgs e)
         {
-            if (op == -1 || op == -2)
+            //Verificação se o visor esta vazio
+            if (visor.Text == "")
             {
-                x = Convert.ToDouble(visor.Text);
+                MessageBox.Show("Digite um número para continuar.");
+                visor.Text = "0";
+                visor.Focus();
             }
             else
             {
-                x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                if (op == -1 || op == -2)
+                {
+                    x = Convert.ToDouble(visor.Text);
+                }
+                else
+                {
+                    x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                }
+                visor.Text = "";
+                op = 1;
+                visor.Focus();
             }
-            visor.Text = "";
-            op = 1;
-            visor.Focus();
         }
+    
         //Botão de Multiplicação (*)
         private void buttonMultiplicacao_Click(object sender, EventArgs e)
         {
-            if (op == -1 || op == -2)
+            //Verificação se o visor esta vazio
+            if (visor.Text == "")
             {
-                x = Convert.ToDouble(visor.Text);
+                MessageBox.Show("Digite um número para continuar.");
+                visor.Text = "0";
+                visor.Focus();
             }
             else
             {
-                x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                if (op == -1 || op == -2)
+                {
+                    x = Convert.ToDouble(visor.Text);
+                }
+                else
+                {
+                    x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                }
+                visor.Text = "";
+                op = 2;
+                visor.Focus();
             }
-            visor.Text = "";
-            op = 2;
-            visor.Focus();
         }
         //Botão de Divisão (/)
         private void buttonDivisao_Click(object sender, EventArgs e)
         {
-            if (op == -1 || op == -2)
+            //Verificação se o visor esta vazio
+            if (visor.Text == "")
             {
-                x = Convert.ToDouble(visor.Text);
+                MessageBox.Show("Digite um número para continuar.");
+                visor.Text = "0";
+                visor.Focus();
             }
             else
             {
-                x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                if (op == -1 || op == -2)
+                {
+                    x = Convert.ToDouble(visor.Text);
+                }
+                else
+                {
+                    x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                }
+                visor.Text = "";
+                op = 3;
+                visor.Focus();
             }
-            visor.Text = "";
-            op = 3;
-            visor.Focus();
         }
         //Botão de Potência (x^y)
         private void buttonPotencia_Click(object sender, EventArgs e)
         {
-            if (op == -1 || op == -2)
+            //Verificação se o visor esta vazio
+            if (visor.Text == "")
             {
-                x = Convert.ToDouble(visor.Text);
+                MessageBox.Show("Digite um número para continuar.");
+                visor.Text = "0";
+                visor.Focus();
             }
             else
             {
-                x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                if (op == -1 || op == -2)
+                {
+                    x = Convert.ToDouble(visor.Text);
+                }
+                else
+                {
+                    x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                }
+                visor.Text = "";
+                op = 4;
+                visor.Focus();
             }
-            visor.Text = "";
-            op = 4;
-            visor.Focus();
         }
         //Botão de Raiz Quadrada (√)
         private void buttonRaiz_Click(object sender, EventArgs e)
         {
-            x = Convert.ToDouble(visor.Text);
-            x = operacoes.raiz(x);
-            int aux = (int)x;
-            if (x != aux)
+            //Verificação se o visor esta vazio
+            if (visor.Text == "")
             {
-                visor.Text = String.Format("{0:0.0,0000}", x);
+                MessageBox.Show("Digite um número para continuar.");
+                visor.Text = "0";
+                visor.Focus();
             }
             else
             {
-                visor.Text = aux.ToString();
+                x = Convert.ToDouble(visor.Text);
+                x = operacoes.raiz(x);
+                int aux = (int)x;
+                if (x != aux)
+                {
+                    visor.Text = String.Format("{0:0.0,0000}", x);
+                }
+                else
+                {
+                    visor.Text = aux.ToString();
+                }
+                visor.Focus();
             }
-            visor.Focus();
         }
         //Botão de Igual (=)
         private void buttonIgual_Click(object sender, EventArgs e)
         {
-            x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
-            int aux = (int) x;
-            if(x != aux)
-            {
-                visor.Text = String.Format("{0:0.0,0000}", x);
+
+                //Verificação se o visor esta vazio
+                if (visor.Text == "")
+                {
+                    MessageBox.Show("Digite um número para continuar.");
+                    visor.Text = "0";
+                    visor.Focus();
             }
-            else
-            {
-                visor.Text = aux.ToString();
+                else
+                {
+
+                    x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                int aux = (int)x;
+                if (x != aux)
+                {
+                    visor.Text = String.Format("{0:0.0,0000}", x);
+                }
+                else
+                {
+                    visor.Text = aux.ToString();
+                }
+                op = -1;
+                visor.Focus();
             }
-            op = -1;
-            visor.Focus();
         }
         //Botão C (Reset da Calculadora)
         private void buttonC_Click(object sender, EventArgs e)
@@ -268,77 +343,103 @@ namespace QualidadeDeSoftware
             }
             if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8 && e.KeyChar != (char)44)
             {
-                //Se não for um dígito e BACKSPACE e virgula
-                e.Handled=true;
+                //Verifica se o caractere é um número ou a tecla backspace
+                e.Handled = true;
 
-                if (e.KeyChar == (char)43) //Soma
+                //Verificação se o visor esta vazio
+                if (visor.Text == "")
                 {
-                    if (op == -1 || op == -2)
-                    {
-                        x = Convert.ToDouble(visor.Text);
-                    }
-                    else
-                    {
-                        x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
-                    }
-                    visor.Text = "";
-                    op = 0;
-                }
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar == (char)45) //Subtração
-                {
-                    if (op == -1 || op == -2)
-                    {
-                        x = Convert.ToDouble(visor.Text);
-                    }
-                    else
-                    {
-                        x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
-                    }
-                    visor.Text = "";
-                    op = 1;
-                }
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar == (char)42) //Multiplicação
-                {
-                    if (op == -1 || op == -2)
-                    {
-                        x = Convert.ToDouble(visor.Text);
-                    }
-                    else
-                    {
-                        x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
-                    }
-                    visor.Text = "";
-                    op = 2;
-                }
-                if (!Char.IsDigit(e.KeyChar) && e.KeyChar == (char)47) //Divisão
-                {
-                    if (op == -1 || op == -2)
-                    {
-                        x = Convert.ToDouble(visor.Text);
-                    }
-                    else
-                    {
-                        x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
-                    }
-                    visor.Text = "";
-                    op = 3;
-                }
-            }
-
-            if(e.KeyChar == (char)13) //Igual
-            {
-                x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
-                int aux = (int)x;
-                if (x != aux)
-                {
-                    visor.Text = String.Format("{0:0.0,0000}", x);
+                    MessageBox.Show("Digite um número para continuar.");
+                    visor.Text = "0";
+                    visor.Focus();
                 }
                 else
                 {
-                    visor.Text = aux.ToString();
+
+                    if (e.KeyChar == (char)43) //Soma
+                    {
+                        if (op == -1 || op == -2)
+                        {
+                            x = Convert.ToDouble(visor.Text);
+                        }
+                        else
+                        {
+                            x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                        }
+                        visor.Text = "";
+                        op = 0;
+                        
+                    }
+                    if (!Char.IsDigit(e.KeyChar) && e.KeyChar == (char)45) //Subtração
+                    {
+                        if (op == -1 || op == -2)
+                        {
+                            x = Convert.ToDouble(visor.Text);
+                        }
+                        else
+                        {
+                            x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                        }
+                        visor.Text = "";
+                        op = 1;
+                    }
+                    if (!Char.IsDigit(e.KeyChar) && e.KeyChar == (char)42) //Multiplicação
+                    {
+                        if (op == -1 || op == -2)
+                        {
+                            x = Convert.ToDouble(visor.Text);
+                        }
+                        else
+                        {
+                            x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                        }
+                        visor.Text = "";
+                        op = 2;
+                        
+                    }
+                    if (!Char.IsDigit(e.KeyChar) && e.KeyChar == (char)47) //Divisão
+                    {
+                        if (op == -1 || op == -2)
+                        {
+                            x = Convert.ToDouble(visor.Text);
+                        }
+                        else
+                        {
+                            x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                        }
+                        visor.Text = "";
+                        op = 3;
+                        
+                    }
+                    
                 }
-                op = -1;
+            }
+
+            if (e.KeyChar == (char)13) //Igual
+            {
+                buttonIgual.Select();
+                //Verificação se o visor esta vazio
+                if (visor.Text == "")
+                {
+                    MessageBox.Show("Digite um número para continuar.");
+                    visor.Text = "0";
+                }
+                else
+                {
+                    x = operacoes.igual(op, x, Convert.ToDouble(visor.Text));
+                    int aux = (int)x;
+                    if (x != aux)
+                    {
+                        visor.Text = String.Format("{0:0.0,0000}", x);
+                    }
+                    else
+                    {
+                        visor.Text = aux.ToString();
+                    }
+                    op = -1;
+                }
             }
         }
+
     }
 }
