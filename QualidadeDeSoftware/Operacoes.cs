@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QualidadeDeSoftware
 {
@@ -26,19 +27,16 @@ namespace QualidadeDeSoftware
         }
         public double potencia(double x, double y)
         {
-            return Math.Pow (x, y);
+            return Math.Pow(x, y);
         }
         public double raiz(double x)
         {
             double y = 2;
-            return Math.Pow (x, 1 / y);
+            return Math.Pow(x, 1 / y);
         }
-        public String igual(int op, double x, double y, double r, String text)
+        public double igual(int op, double x, double y)
         {
-            if (op != 5)
-            {
-                y = Convert.ToDouble(text);
-            }
+            double r = 0; //Resultado
             switch (op)
             {
                 //Soma
@@ -55,6 +53,11 @@ namespace QualidadeDeSoftware
                     break;
                 //Divisão
                 case 3:
+                    if(y == 0)
+                    {
+                        MessageBox.Show("Não é possível dividir por zero!");
+                        return 0;
+                    }
                     r = this.divisao(x, y);
                     break;
                 //Potência
@@ -64,7 +67,7 @@ namespace QualidadeDeSoftware
                 default:
                     break;
             }
-            return String.Format("{0:0.0,0000}", r);
+            return r;
         }
     }
 }
